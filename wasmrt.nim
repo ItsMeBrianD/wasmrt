@@ -358,12 +358,12 @@ g._nimwf = (v, a) => new Float32Array(q.buffer, a).set(v);
 // Write `float64Array` at `address`
 g._nimwd = (v, a) => new Float64Array(q.buffer, a).set(v);
 
-W.instantiate(m, {env: o}).then(m => {
-  g._nimm = m;
+return W.instantiate(m, {env: o}).then(m => {
   g._nime = m.exports;
   q = _nime.memory;
   _nimmu();
   _nime.NimMain();
+  return m
 })
 """).minifyJs().escapeJs()
 
